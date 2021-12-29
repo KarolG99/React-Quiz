@@ -2,7 +2,7 @@
   "name": "React-Quiz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://KarolG99.github.io/React-Quiz/",
+  "homepage": "https://KarolG99.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
