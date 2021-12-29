@@ -1,9 +1,13 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+export const StyledNavLink = styled(NavLink)`
+margin: 5vh 3vw;
+`;
 
 export const QuizBtn = styled.button`
   width: 60vw;
-  margin: 5vh 3vw;
+  /* margin: 5vh 3vw; */
   border: 3px solid ${({ theme }) => theme.colors.yellow};
   background-color: transparent;
   padding: 10px 0;

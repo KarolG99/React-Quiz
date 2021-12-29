@@ -21,6 +21,7 @@ export const QuizSection = styled.div`
   color: ${({ theme }) => theme.colors.white};
   font-weight: 600;
   box-shadow: 0px 0px 92px -23px rgba(187, 187, 255, 1);
+  margin: 30px 0;
 
   @media screen and (min-width: 768px) {
     width: fit-content;
@@ -41,6 +42,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
+  margin: 20px 0;
 `;
 
 export const AnswerNumber = styled.div`
@@ -51,4 +53,17 @@ export const AnswerNumber = styled.div`
   & span {
     font-size: ${({ theme }) => theme.fontSize.l};
   }
+`;
+
+export const CorrectQuestionNumber = styled.span`
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.yellow};
+  font-size: ${({ theme }) => theme.fontSize.sm};
+`;
+
+export const AnswersHeader = styled.span`
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSize.m};
+  color: ${({ theme }) => theme.colors.yellow};
+
 `;

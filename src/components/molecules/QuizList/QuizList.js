@@ -5,7 +5,7 @@ import {
   QuizListWrapper,
   TextWrapperQuizList,
 } from "./QuizList.styles";
-import { Link, NavLink } from "react-router-dom";
+import { StyledNavLink } from "../../atoms/QuizCategoryBtn/QuizCategoryBtn.styles";
 
 const QuizList = () => {
   return (
@@ -21,13 +21,18 @@ const QuizList = () => {
         <QuizListHeader>Wybierz kategorie quizu</QuizListHeader>
 
         <QuizCategories>
-          <NavLink to="cyberbezpieczenstwoquiz">
+          <StyledNavLink to="cyberbezpieczenstwoquiz">
             <QuizCategoryBtn text="Cyberbeczpieczństwo" />
-          </NavLink>
-          <NavLink to="cookingquiz">
+          </StyledNavLink>
+          <StyledNavLink to="cookingquiz">
             <QuizCategoryBtn text="Gotowanie" />
-          </NavLink>
-          <QuizCategoryBtn text="Inna" />
+          </StyledNavLink>
+          <StyledNavLink to="metin2quiz">
+            <QuizCategoryBtn text="Metin2" />
+          </StyledNavLink>
+          <StyledNavLink to="applequiz">
+            <QuizCategoryBtn text="Apple" />
+          </StyledNavLink>
         </QuizCategories>
       </TextWrapperQuizList>
     </QuizListWrapper>

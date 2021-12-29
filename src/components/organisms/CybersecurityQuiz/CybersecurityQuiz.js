@@ -7,9 +7,10 @@ import {
   StyledShowScore,
 } from "./CybersecurityQuiz.styles";
 import { useState } from "react";
-import { cybersecurity } from "../../../data/QuestionsAndAnswers";
+import { cybersecurity, cybersecurityAnswers } from "../../../data/QuestionsAndAnswers";
 import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
-
+import CybersecurityCorrectAnswers from "./CybersecurityCorrectAnswers";
+import Scores from "../../atoms/Scores/Scores";
 
 const CybersecurityQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -29,35 +30,48 @@ const CybersecurityQuiz = () => {
 
   return (
     <>
-
       <QuizWrapper>
-      <StyledLink to="/">{"< cofnij"}</StyledLink>
+        <StyledLink to="/">{"< cofnij"}</StyledLink>
 
         <QuizSection>
           {showScore ? (
             <StyledShowScore>
               {score ? (
-                <span>Zdobyłeś {score} z {cybersecurity.length} punktów!</span>
+                <>
+                  <Scores score={score} length={cybersecurity.length} />
+                  <CybersecurityCorrectAnswers
+                    correctAnswer={cybersecurityAnswers}
+                  />
+                </>
               ) : (
-                <span>Tym razem się nie udało, może następnym razem!</span>
+                <>
+                  <span>Tym razem się nie udało, może następnym razem!</span>
+                  <CybersecurityCorrectAnswers
+                    correctAnswer={cybersecurityAnswers}
+                  />
+                </>
               )}
             </StyledShowScore>
           ) : (
             <div>
               <AnswerNumber>
-              Pytanie {currentQuestion + 1}/<span>{cybersecurity.length}</span>
+                Pytanie {currentQuestion + 1}/
+                <span>{cybersecurity.length}</span>
               </AnswerNumber>
               <p>{cybersecurity[currentQuestion].questionText}</p>
               <AnswerBtnWrapper>
-                {cybersecurity[currentQuestion].answerOption.map((answerOption) => (
-                  <StyledAnswerButton
-                    onClick={() =>
-                      handleAnswerButtonClick(answerOption.isCorrect)
-                    }
-                  >
-                    <span>{answerOption.answerText}</span>
-                  </StyledAnswerButton>
-                ))}
+                {cybersecurity[currentQuestion].answerOption.map(
+                  (answerOption) => (
+                    <StyledAnswerButton
+                    key={answerOption.answerText}
+                      onClick={() =>
+                        handleAnswerButtonClick(answerOption.isCorrect)
+                      }
+                    >
+                      <span>{answerOption.answerText}</span>
+                    </StyledAnswerButton>
+                  )
+                )}
               </AnswerBtnWrapper>
             </div>
           )}

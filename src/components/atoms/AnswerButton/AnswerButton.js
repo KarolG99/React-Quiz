@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledAnswerButton = styled.button`
-  padding: 8px 8px;
+  padding: 8px 10px;
   margin: 10px 0px;
   background-color: ${({ theme }) => theme.colors.green};
   border: none;

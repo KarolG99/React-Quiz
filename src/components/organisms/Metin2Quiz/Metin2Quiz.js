@@ -7,12 +7,16 @@ import {
   StyledShowScore,
 } from "../CybersecurityQuiz/CybersecurityQuiz.styles";
 import { useState } from "react";
-import { cooking, cookingAnswers } from "../../../data/QuestionsAndAnswers";
+import {
+  metin2,
+  metin2Answers,
+} from "../../../data/QuestionsAndAnswers";
 import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
 import Scores from "../../atoms/Scores/Scores";
 import CybersecurityCorrectAnswers from "../CybersecurityQuiz/CybersecurityCorrectAnswers";
 
-const CookingQuiz = () => {
+
+const Metin2Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
@@ -21,12 +25,13 @@ const CookingQuiz = () => {
     if (isCorrect === true) {
       setScore((prev) => prev + 1);
     }
-    if (currentQuestion < cooking.length - 1) {
+    if (currentQuestion < metin2.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
       setShowScore(true);
     }
   };
+
   return (
     <>
       <QuizWrapper>
@@ -37,32 +42,40 @@ const CookingQuiz = () => {
             <StyledShowScore>
               {score ? (
                 <>
-                  <Scores score={score} length={cooking.length} />
-                  <CybersecurityCorrectAnswers correctAnswer={cookingAnswers} />
+                  <Scores score={score} length={metin2.length} />
+                  <CybersecurityCorrectAnswers
+                    correctAnswer={metin2Answers}
+                  />
                 </>
               ) : (
                 <>
                   <span>Tym razem się nie udało, może następnym razem!</span>
-                  <CybersecurityCorrectAnswers correctAnswer={cookingAnswers} />
+                  <CybersecurityCorrectAnswers
+                    correctAnswer={metin2Answers}
+                  />
                 </>
               )}
             </StyledShowScore>
           ) : (
             <div>
               <AnswerNumber>
-                Pytanie {currentQuestion + 1}/<span>{cooking.length}</span>
+                Pytanie {currentQuestion + 1}/
+                <span>{metin2.length}</span>
               </AnswerNumber>
-              <p>{cooking[currentQuestion].questionText}</p>
+              <p>{metin2[currentQuestion].questionText}</p>
               <AnswerBtnWrapper>
-                {cooking[currentQuestion].answerOption.map((answerOption) => (
-                  <StyledAnswerButton
-                    onClick={() =>
-                      handleAnswerButtonClick(answerOption.isCorrect)
-                    }
-                  >
-                    <span>{answerOption.answerText}</span>
-                  </StyledAnswerButton>
-                ))}
+                {metin2[currentQuestion].answerOption.map(
+                  (answerOption) => (
+                    <StyledAnswerButton
+                      key={answerOption.answerText}
+                      onClick={() =>
+                        handleAnswerButtonClick(answerOption.isCorrect)
+                      }
+                    >
+                      <span>{answerOption.answerText}</span>
+                    </StyledAnswerButton>
+                  )
+                )}
               </AnswerBtnWrapper>
             </div>
           )}
@@ -72,4 +85,4 @@ const CookingQuiz = () => {
   );
 };
 
-export default CookingQuiz;
+export default Metin2Quiz;

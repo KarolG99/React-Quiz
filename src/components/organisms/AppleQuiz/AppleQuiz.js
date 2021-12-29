@@ -7,12 +7,12 @@ import {
   StyledShowScore,
 } from "../CybersecurityQuiz/CybersecurityQuiz.styles";
 import { useState } from "react";
-import { cooking, cookingAnswers } from "../../../data/QuestionsAndAnswers";
+import { apple, appleAnswers } from "../../../data/QuestionsAndAnswers";
 import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
 import Scores from "../../atoms/Scores/Scores";
 import CybersecurityCorrectAnswers from "../CybersecurityQuiz/CybersecurityCorrectAnswers";
 
-const CookingQuiz = () => {
+const AppleQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
@@ -21,12 +21,13 @@ const CookingQuiz = () => {
     if (isCorrect === true) {
       setScore((prev) => prev + 1);
     }
-    if (currentQuestion < cooking.length - 1) {
+    if (currentQuestion < apple.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
       setShowScore(true);
     }
   };
+
   return (
     <>
       <QuizWrapper>
@@ -37,25 +38,26 @@ const CookingQuiz = () => {
             <StyledShowScore>
               {score ? (
                 <>
-                  <Scores score={score} length={cooking.length} />
-                  <CybersecurityCorrectAnswers correctAnswer={cookingAnswers} />
+                  <Scores score={score} length={apple.length} />
+                  <CybersecurityCorrectAnswers correctAnswer={appleAnswers} />
                 </>
               ) : (
                 <>
                   <span>Tym razem się nie udało, może następnym razem!</span>
-                  <CybersecurityCorrectAnswers correctAnswer={cookingAnswers} />
+                  <CybersecurityCorrectAnswers correctAnswer={appleAnswers} />
                 </>
               )}
             </StyledShowScore>
           ) : (
             <div>
               <AnswerNumber>
-                Pytanie {currentQuestion + 1}/<span>{cooking.length}</span>
+                Pytanie {currentQuestion + 1}/<span>{apple.length}</span>
               </AnswerNumber>
-              <p>{cooking[currentQuestion].questionText}</p>
+              <p>{apple[currentQuestion].questionText}</p>
               <AnswerBtnWrapper>
-                {cooking[currentQuestion].answerOption.map((answerOption) => (
+                {apple[currentQuestion].answerOption.map((answerOption) => (
                   <StyledAnswerButton
+                    key={answerOption.answerText}
                     onClick={() =>
                       handleAnswerButtonClick(answerOption.isCorrect)
                     }
@@ -72,4 +74,4 @@ const CookingQuiz = () => {
   );
 };
 
-export default CookingQuiz;
+export default AppleQuiz;
