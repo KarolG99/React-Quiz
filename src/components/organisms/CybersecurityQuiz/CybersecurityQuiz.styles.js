@@ -1,0 +1,54 @@
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+export const QuizWrapper = styled.article`
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const QuizSection = styled.div`
+  background-color: ${({ theme }) => theme.colors.darkBlue};
+  width: 90%;
+  padding: 20px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: 600;
+  box-shadow: 0px 0px 92px -23px rgba(187, 187, 255, 1);
+
+  @media screen and (min-width: 768px) {
+    width: fit-content;
+    padding: 40px 60px;
+    max-width: 90vw;
+  }
+`;
+
+export const StyledShowScore = styled.p``;
+
+export const AnswerBtnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.blue};
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+export const AnswerNumber = styled.div`
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.green};
+  font-size: ${({ theme }) => theme.fontSize.m};
+
+  & span {
+    font-size: ${({ theme }) => theme.fontSize.l};
+  }
+`;

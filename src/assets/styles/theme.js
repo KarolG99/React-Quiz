@@ -1,0 +1,19 @@
+export const theme = {
+  colors: {
+    white: "#ffffff",
+    black: "#111111",
+    bgGray: "#F3F4F5",
+    blue: "#0099FF",
+    darkBlue: "#0077ee",
+    lightBlue: "#00D5E9",
+    yellow: "#F9F871",
+    green: "#96F589",
+    darkGreen: "#85e478",
+  },
+  fontSize: {
+    xl: "40px",
+    l: "28px",
+    m: "24px",
+    s: "14px",
+  },
+};
