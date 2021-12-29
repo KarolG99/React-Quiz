@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/QuizApp/static/css/main.cf2c6d42.css",
+    "main.js": "/QuizApp/static/js/main.74c97999.js",
+    "static/media/vectary-quiz-lg.png": "/QuizApp/static/media/vectary-quiz-lg.94b4abc0d5790869f275.png",
+    "static/media/vectary-quiz-sm.png": "/QuizApp/static/media/vectary-quiz-sm.d488752c09a63dcfedc0.png",
+    "index.html": "/QuizApp/index.html",
+    "main.cf2c6d42.css.map": "/QuizApp/static/css/main.cf2c6d42.css.map",
+    "main.74c97999.js.map": "/QuizApp/static/js/main.74c97999.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf2c6d42.css",
+    "static/js/main.74c97999.js"
+  ]
+}
