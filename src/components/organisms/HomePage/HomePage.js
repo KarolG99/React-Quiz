@@ -1,12 +1,13 @@
 import Header from "../../molecules/Header/Header"
 import QuizList from "../../molecules/QuizList/QuizList"
+import { Wrapper } from "./HomePage.styles"
 
 const HomePage = () => {
     return (
-        <div>
+        <Wrapper>
             <Header />
             <QuizList />
-        </div>
+        </Wrapper>
     )
 }
 

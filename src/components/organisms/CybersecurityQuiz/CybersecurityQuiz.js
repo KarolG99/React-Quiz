@@ -27,7 +27,7 @@ const CybersecurityQuiz = () => {
   };
 
   return (
-    <>
+    // <>
       <StyledQuizWrapper>
         <StyledLink to="/">{"< cofnij"}</StyledLink>
 
@@ -55,7 +55,7 @@ const CybersecurityQuiz = () => {
           )}
         </StyledQuizSection>
       </StyledQuizWrapper>
-    </>
+    // </>
   );
 };
 

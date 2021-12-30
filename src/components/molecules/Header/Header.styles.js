@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { ShowAnimation } from "../../organisms/CybersecurityQuiz/CybersecurityQuiz.styles";
+
 export const HeaderWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.bgGray};
   width: 100%;
@@ -8,6 +10,8 @@ export const HeaderWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  animation: ${ShowAnimation} 1.4s linear;
+
 
   svg {
     position: absolute;
