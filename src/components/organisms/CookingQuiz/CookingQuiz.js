@@ -1,16 +1,14 @@
 import {
-  AnswerBtnWrapper,
-  AnswerNumber,
-  QuizSection,
-  QuizWrapper,
+  StyledQuizSection,
+  StyledQuizWrapper,
   StyledLink,
   StyledShowScore,
 } from "../CybersecurityQuiz/CybersecurityQuiz.styles";
 import { useState } from "react";
 import { cooking, cookingAnswers } from "../../../data/QuestionsAndAnswers";
-import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
 import Scores from "../../atoms/Scores/Scores";
-import CybersecurityCorrectAnswers from "../CybersecurityQuiz/CybersecurityCorrectAnswers";
+import ShowCorrectAnswers from "../CybersecurityQuiz/ShowCorrectAnswers";
+import ShowQuestions from '../../molecules/ShowQuestions/ShowQuestions';
 
 const CookingQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -29,45 +27,30 @@ const CookingQuiz = () => {
   };
   return (
     <>
-      <QuizWrapper>
+      <StyledQuizWrapper>
         <StyledLink to="/">{"< cofnij"}</StyledLink>
 
-        <QuizSection>
+        <StyledQuizSection>
           {showScore ? (
             <StyledShowScore>
               {score ? (
-                <>
+                <div>
                   <Scores score={score} length={cooking.length} />
-                  <CybersecurityCorrectAnswers correctAnswer={cookingAnswers} />
-                </>
+                  <ShowCorrectAnswers correctAnswer={cookingAnswers} />
+                </div>
               ) : (
-                <>
+                <div>
                   <span>Tym razem się nie udało, może następnym razem!</span>
-                  <CybersecurityCorrectAnswers correctAnswer={cookingAnswers} />
-                </>
+                  <ShowCorrectAnswers correctAnswer={cookingAnswers} />
+                </div>
               )}
             </StyledShowScore>
           ) : (
-            <div>
-              <AnswerNumber>
-                Pytanie {currentQuestion + 1}/<span>{cooking.length}</span>
-              </AnswerNumber>
-              <p>{cooking[currentQuestion].questionText}</p>
-              <AnswerBtnWrapper>
-                {cooking[currentQuestion].answerOption.map((answerOption) => (
-                  <StyledAnswerButton
-                    onClick={() =>
-                      handleAnswerButtonClick(answerOption.isCorrect)
-                    }
-                  >
-                    <span>{answerOption.answerText}</span>
-                  </StyledAnswerButton>
-                ))}
-              </AnswerBtnWrapper>
-            </div>
+            <ShowQuestions category={cooking} currentQuestion={currentQuestion} handleAnswerButtonClick={handleAnswerButtonClick} />
+
           )}
-        </QuizSection>
-      </QuizWrapper>
+        </StyledQuizSection>
+      </StyledQuizWrapper>
     </>
   );
 };

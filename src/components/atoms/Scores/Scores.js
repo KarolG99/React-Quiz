@@ -1,4 +1,5 @@
 import { TotalScores } from "./Scores.styles"
+import PropTypes from 'prop-types';
 
 const Scores = ({score, length}) => {
     return (
@@ -7,5 +8,10 @@ const Scores = ({score, length}) => {
         </TotalScores>
     )
 }
+
+Scores.propTypes = {
+    score: PropTypes.number,
+    length: PropTypes.number,
+};
 
 export default Scores

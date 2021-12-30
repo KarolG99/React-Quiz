@@ -1,16 +1,15 @@
 import {
-  AnswerBtnWrapper,
-  AnswerNumber,
-  QuizSection,
-  QuizWrapper,
+  StyledQuizSection,
+  StyledQuizWrapper,
   StyledLink,
   StyledShowScore,
 } from "../CybersecurityQuiz/CybersecurityQuiz.styles";
 import { useState } from "react";
 import { apple, appleAnswers } from "../../../data/QuestionsAndAnswers";
-import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
 import Scores from "../../atoms/Scores/Scores";
-import CybersecurityCorrectAnswers from "../CybersecurityQuiz/CybersecurityCorrectAnswers";
+import ShowCorrectAnswers from "../CybersecurityQuiz/ShowCorrectAnswers";
+import ShowQuestions from '../../molecules/ShowQuestions/ShowQuestions';
+
 
 const AppleQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -30,46 +29,29 @@ const AppleQuiz = () => {
 
   return (
     <>
-      <QuizWrapper>
+      <StyledQuizWrapper>
         <StyledLink to="/">{"< cofnij"}</StyledLink>
 
-        <QuizSection>
+        <StyledQuizSection>
           {showScore ? (
             <StyledShowScore>
               {score ? (
                 <>
                   <Scores score={score} length={apple.length} />
-                  <CybersecurityCorrectAnswers correctAnswer={appleAnswers} />
+                  <ShowCorrectAnswers correctAnswer={appleAnswers} />
                 </>
               ) : (
                 <>
                   <span>Tym razem się nie udało, może następnym razem!</span>
-                  <CybersecurityCorrectAnswers correctAnswer={appleAnswers} />
+                  <ShowCorrectAnswers correctAnswer={appleAnswers} />
                 </>
               )}
             </StyledShowScore>
           ) : (
-            <div>
-              <AnswerNumber>
-                Pytanie {currentQuestion + 1}/<span>{apple.length}</span>
-              </AnswerNumber>
-              <p>{apple[currentQuestion].questionText}</p>
-              <AnswerBtnWrapper>
-                {apple[currentQuestion].answerOption.map((answerOption) => (
-                  <StyledAnswerButton
-                    key={answerOption.answerText}
-                    onClick={() =>
-                      handleAnswerButtonClick(answerOption.isCorrect)
-                    }
-                  >
-                    <span>{answerOption.answerText}</span>
-                  </StyledAnswerButton>
-                ))}
-              </AnswerBtnWrapper>
-            </div>
+            <ShowQuestions category={apple} currentQuestion={currentQuestion} handleAnswerButtonClick={handleAnswerButtonClick} />
           )}
-        </QuizSection>
-      </QuizWrapper>
+        </StyledQuizSection>
+      </StyledQuizWrapper>
     </>
   );
 };

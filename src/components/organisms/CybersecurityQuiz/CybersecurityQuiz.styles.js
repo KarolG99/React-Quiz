@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const QuizWrapper = styled.article`
+export const StyledQuizWrapper = styled.article`
   width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -10,7 +10,7 @@ export const QuizWrapper = styled.article`
   flex-direction: column;
 `;
 
-export const QuizSection = styled.div`
+export const StyledQuizSection = styled.div`
   background-color: ${({ theme }) => theme.colors.darkBlue};
   width: 90%;
   padding: 20px 15px;
@@ -30,9 +30,11 @@ export const QuizSection = styled.div`
   }
 `;
 
-export const StyledShowScore = styled.p``;
+export const StyledShowScore = styled.div`
+  padding: 10px 0;
+`;
 
-export const AnswerBtnWrapper = styled.div`
+export const StyledAnswerBtnWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -45,7 +47,7 @@ export const StyledLink = styled(Link)`
   margin: 20px 0;
 `;
 
-export const AnswerNumber = styled.div`
+export const StyledAnswerNumber = styled.div`
   font-weight: 700;
   color: ${({ theme }) => theme.colors.green};
   font-size: ${({ theme }) => theme.fontSize.m};
@@ -55,13 +57,13 @@ export const AnswerNumber = styled.div`
   }
 `;
 
-export const CorrectQuestionNumber = styled.span`
+export const StyledCorrectQuestionNumber = styled.span`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.yellow};
   font-size: ${({ theme }) => theme.fontSize.sm};
 `;
 
-export const AnswersHeader = styled.span`
+export const StyledAnswersHeader = styled.span`
   font-weight: bold;
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.colors.yellow};

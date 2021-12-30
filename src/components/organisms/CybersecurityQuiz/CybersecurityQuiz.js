@@ -1,16 +1,14 @@
 import {
-  AnswerBtnWrapper,
-  AnswerNumber,
-  QuizSection,
-  QuizWrapper,
+  StyledQuizSection,
+  StyledQuizWrapper,
   StyledLink,
   StyledShowScore,
 } from "./CybersecurityQuiz.styles";
 import { useState } from "react";
 import { cybersecurity, cybersecurityAnswers } from "../../../data/QuestionsAndAnswers";
-import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
-import CybersecurityCorrectAnswers from "./CybersecurityCorrectAnswers";
+import ShowCorrectAnswers from "./ShowCorrectAnswers";
 import Scores from "../../atoms/Scores/Scores";
+import ShowQuestions from "../../molecules/ShowQuestions/ShowQuestions";
 
 const CybersecurityQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -30,53 +28,33 @@ const CybersecurityQuiz = () => {
 
   return (
     <>
-      <QuizWrapper>
+      <StyledQuizWrapper>
         <StyledLink to="/">{"< cofnij"}</StyledLink>
 
-        <QuizSection>
+        <StyledQuizSection>
           {showScore ? (
             <StyledShowScore>
               {score ? (
-                <>
+                <div>
                   <Scores score={score} length={cybersecurity.length} />
-                  <CybersecurityCorrectAnswers
+                  <ShowCorrectAnswers
                     correctAnswer={cybersecurityAnswers}
                   />
-                </>
+                </div>
               ) : (
                 <>
                   <span>Tym razem się nie udało, może następnym razem!</span>
-                  <CybersecurityCorrectAnswers
+                  <ShowCorrectAnswers
                     correctAnswer={cybersecurityAnswers}
                   />
                 </>
               )}
             </StyledShowScore>
           ) : (
-            <div>
-              <AnswerNumber>
-                Pytanie {currentQuestion + 1}/
-                <span>{cybersecurity.length}</span>
-              </AnswerNumber>
-              <p>{cybersecurity[currentQuestion].questionText}</p>
-              <AnswerBtnWrapper>
-                {cybersecurity[currentQuestion].answerOption.map(
-                  (answerOption) => (
-                    <StyledAnswerButton
-                    key={answerOption.answerText}
-                      onClick={() =>
-                        handleAnswerButtonClick(answerOption.isCorrect)
-                      }
-                    >
-                      <span>{answerOption.answerText}</span>
-                    </StyledAnswerButton>
-                  )
-                )}
-              </AnswerBtnWrapper>
-            </div>
+            <ShowQuestions category={cybersecurity} currentQuestion={currentQuestion} handleAnswerButtonClick={handleAnswerButtonClick} />
           )}
-        </QuizSection>
-      </QuizWrapper>
+        </StyledQuizSection>
+      </StyledQuizWrapper>
     </>
   );
 };

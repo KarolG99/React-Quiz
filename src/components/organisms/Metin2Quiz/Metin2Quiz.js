@@ -1,8 +1,6 @@
 import {
-  AnswerBtnWrapper,
-  AnswerNumber,
-  QuizSection,
-  QuizWrapper,
+  StyledQuizSection,
+  StyledQuizWrapper,
   StyledLink,
   StyledShowScore,
 } from "../CybersecurityQuiz/CybersecurityQuiz.styles";
@@ -11,9 +9,9 @@ import {
   metin2,
   metin2Answers,
 } from "../../../data/QuestionsAndAnswers";
-import { StyledAnswerButton } from "../../atoms/AnswerButton/AnswerButton";
 import Scores from "../../atoms/Scores/Scores";
-import CybersecurityCorrectAnswers from "../CybersecurityQuiz/CybersecurityCorrectAnswers";
+import ShowCorrectAnswers from "../CybersecurityQuiz/ShowCorrectAnswers";
+import ShowQuestions from "../../molecules/ShowQuestions/ShowQuestions";
 
 
 const Metin2Quiz = () => {
@@ -34,53 +32,33 @@ const Metin2Quiz = () => {
 
   return (
     <>
-      <QuizWrapper>
+      <StyledQuizWrapper>
         <StyledLink to="/">{"< cofnij"}</StyledLink>
 
-        <QuizSection>
+        <StyledQuizSection>
           {showScore ? (
             <StyledShowScore>
               {score ? (
                 <>
                   <Scores score={score} length={metin2.length} />
-                  <CybersecurityCorrectAnswers
+                  <ShowCorrectAnswers
                     correctAnswer={metin2Answers}
                   />
                 </>
               ) : (
                 <>
                   <span>Tym razem się nie udało, może następnym razem!</span>
-                  <CybersecurityCorrectAnswers
+                  <ShowCorrectAnswers
                     correctAnswer={metin2Answers}
                   />
                 </>
               )}
             </StyledShowScore>
           ) : (
-            <div>
-              <AnswerNumber>
-                Pytanie {currentQuestion + 1}/
-                <span>{metin2.length}</span>
-              </AnswerNumber>
-              <p>{metin2[currentQuestion].questionText}</p>
-              <AnswerBtnWrapper>
-                {metin2[currentQuestion].answerOption.map(
-                  (answerOption) => (
-                    <StyledAnswerButton
-                      key={answerOption.answerText}
-                      onClick={() =>
-                        handleAnswerButtonClick(answerOption.isCorrect)
-                      }
-                    >
-                      <span>{answerOption.answerText}</span>
-                    </StyledAnswerButton>
-                  )
-                )}
-              </AnswerBtnWrapper>
-            </div>
+            <ShowQuestions category={metin2} currentQuestion={currentQuestion} handleAnswerButtonClick={handleAnswerButtonClick} />
           )}
-        </QuizSection>
-      </QuizWrapper>
+        </StyledQuizSection>
+      </StyledQuizWrapper>
     </>
   );
 };
