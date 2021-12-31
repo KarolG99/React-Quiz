@@ -61,16 +61,18 @@ export const StyledQuizWrapper = styled.article`
 export const StyledQuizSection = styled.div`
   background-color: ${({ theme }) => theme.colors.darkBlue};
   width: 90%;
-  padding: 20px 15px;
+  padding: 20px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   color: ${({ theme }) => theme.colors.white};
   font-weight: 600;
-  box-shadow: 0px 0px 92px -23px rgba(187, 187, 255, 1);
   margin: 30px 0;
   animation: ${ShowAnimation} 1.4s linear;
+  /* box-shadow: -6px -6px 16px rgba(255, 255, 255, 0.5), 6px 6px 16px rgba(0, 102, 221, 0.5); */
+  box-shadow: -18px 18px 30px rgba(209, 217, 230, 0.2), 18px -18px 30px rgba(209, 217, 230, 0.2), -18px -18px 30px rgba(255, 255, 255, 0.9), 18px 18px 30px rgba(209, 217, 230, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.3), inset -2px -2px 2px rgba(209, 217, 230, 0.5);
+
 
   @media screen and (min-width: 768px) {
     width: fit-content;
@@ -95,6 +97,17 @@ export const StyledLink = styled(Link)`
   font-size: 20px;
   margin: 20px 0;
   animation: ${ShowAnimation} 1.4s linear;
+  padding: 10px 15px;;
+
+  background: #ECF0F3;
+box-shadow: -18px 18px 30px rgba(209, 217, 230, 0.5), 18px -18px 30px rgba(209, 217, 230, 0.5), -18px -18px 30px rgba(255, 255, 255, 0.9), 18px 18px 30px rgba(209, 217, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.6), inset -1px -1px 2px rgba(209, 217, 230, 0.7);
+border-radius: 10px;
+
+& span {
+  background: #ECF0F3;
+box-shadow: -5px 5px 5px rgba(209, 217, 230, 0.2), 5px -5px 5px rgba(209, 217, 230, 0.2), -5px -5px 5px rgba(255, 255, 255, 0.9), 5px 5px 5px rgba(209, 217, 230, 0.9), inset 1px 1px 1px rgba(255, 255, 255, 0.3), inset -1px -1px 1px rgba(209, 217, 230, 0.5);
+
+}
 `;
 
 export const StyledAnswerNumber = styled.div`
