@@ -99,15 +99,9 @@ export const StyledLink = styled(Link)`
   animation: ${ShowAnimation} 1.4s linear;
   padding: 10px 15px;;
 
-  background: #ECF0F3;
-box-shadow: -18px 18px 30px rgba(209, 217, 230, 0.5), 18px -18px 30px rgba(209, 217, 230, 0.5), -18px -18px 30px rgba(255, 255, 255, 0.9), 18px 18px 30px rgba(209, 217, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.6), inset -1px -1px 2px rgba(209, 217, 230, 0.7);
+  background: ${({ theme }) => theme.colors.darkWhite};
+box-shadow: -7px 7px 30px rgba(209, 217, 230, 0.5), 8px -8px 30px rgba(209, 217, 230, 0.5), -8px -8px 30px rgba(255, 255, 255, 0.9), 8px 8px 30px rgba(209, 217, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.6), inset -1px -1px 2px rgba(209, 217, 230, 0.7);
 border-radius: 10px;
-
-& span {
-  background: #ECF0F3;
-box-shadow: -5px 5px 5px rgba(209, 217, 230, 0.2), 5px -5px 5px rgba(209, 217, 230, 0.2), -5px -5px 5px rgba(255, 255, 255, 0.9), 5px 5px 5px rgba(209, 217, 230, 0.9), inset 1px 1px 1px rgba(255, 255, 255, 0.3), inset -1px -1px 1px rgba(209, 217, 230, 0.5);
-
-}
 `;
 
 export const StyledAnswerNumber = styled.div`
